@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "feature/*"
+      - development
+      - main
+  pull_request:
+    branches:
+      - development
+      - main
+
+jobs:
+  test-backend:
+    name: Backend Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+          cache-dependency-path: apps/backend/package-lock.json
+      - run: npm install
+        working-directory: apps/backend
+      - run: npm test
+        working-directory: apps/backend
+        env:
+          NODE_ENV: test # AC-07: suppresses analytics during test run
+
+  test-frontend:
+    name: Frontend Build Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+          cache-dependency-path: apps/frontend/package-lock.json
+      - run: npm install
+        working-directory: apps/frontend
+      - run: npm run build
+        working-directory: apps/frontend
+        env:
+          VITE_ENV_NAME: Production
+          VITE_API_URL: https://your-production-api.com/api
+
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [test-backend, test-frontend]
+    if: github.ref == 'refs/heads/development'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to staging
+        run: echo "Add your staging deploy command here (Vercel, Railway, Render...)"
+
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [test-backend, test-frontend]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to production
+        run: echo "Add your production deploy command here"
