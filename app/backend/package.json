@@ -4,7 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "start:dev": "node --watch index.js",
+    "start:staging": "NODE_ENV=staging node index.js",
+    "start:prod": "NODE_ENV=production node index.js",
+    "dev": "node --watch index.js",
+    "test": "jest --runInBand --verbose",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:seed": "node scripts/seed.js",
+    "db:reset": "node scripts/reset.js"
   },
   "keywords": [],
   "author": "",
@@ -13,11 +22,14 @@
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
-    "express": "^5.2.1"
+    "drizzle-orm": "^0.45.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.18.2"
   },
   "devDependencies": {
     "jest": "^30.2.0",
     "nodemon": "^3.1.11",
-    "supertest": "^7.2.2"
+    "supertest": "^7.2.2",
+    "drizzle-kit": "^0.20.0"
   }
 }

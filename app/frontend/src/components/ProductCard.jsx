@@ -24,7 +24,7 @@ export default function ProductCard({ product }) {
           {name}
         </h2>
         <span className="text-blue-600 font-bold text-base whitespace-nowrap">
-          ₦{price.toFixed(2)}
+          ₦{Number(price)}
         </span>
       </div>
 

@@ -7,12 +7,17 @@ export function trackEvent(eventName, payload = {}) {
     ...payload,
   };
 
-  if (ENV !== "Production") {
-    console.log(`[${ENV?.toUpperCase() ?? "DEV"}] Event tracked: ${eventName}`, event);
+  if (ENV === "Development") {
+    console.log(`[DEV] Event tracked: ${eventName}`, event);
     return;
   }
 
+  if (ENV === "Staging") {
+    console.log(`[STAGING] Event tracked: ${eventName}`, event);
+    return;
+  }
+
+  // Production — real analytics
   console.log(`[PROD] Sending event: ${eventName}`, event);
-  // Replace with real provider:
-  // window.analytics.track(eventName, payload);
+  // i wiil put a real anayltics provider later 
 }
