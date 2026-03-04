@@ -1,7 +1,3 @@
-// db/schema.js
-// Database schema definition using Drizzle ORM
-// This is the single source of truth for table structure
-
 const { mysqlTable, varchar, decimal, text } = require("drizzle-orm/mysql-core");
 
 const products = mysqlTable("products", {

@@ -21,8 +21,12 @@ app.use((req, res) => {
   res.status(404).json({ error: "Route not found" });
 });
 
+const PORT = process.env.PORT || 3001;
+
 if (require.main === module) {
-  app.listen(3001, () => console.log("Backend running on http://localhost:3001"));
+  app.listen(PORT, () => 
+    console.log(`Backend running on port ${PORT}`)
+  );
 }
 
 module.exports = app;

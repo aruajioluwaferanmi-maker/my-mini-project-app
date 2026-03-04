@@ -1,8 +1,3 @@
-// scripts/seed.js
-// CONFIG-DRIVEN SEEDING
-// Reads productsConfig.json and populates MySQL database
-// Run: npm run db:seed
-
 require("dotenv").config();
 const { db } = require("../db");
 const { products } = require("../db/schema");

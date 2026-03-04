@@ -1,12 +1,3 @@
-// src/services/productsService.js
-// All product data and filtering logic lives here.
-// No Express. No HTTP. Pure functions = easy to unit test.
-// 
-// CONFIG-DRIVEN with MySQL:
-// - Products are stored in MySQL database
-// - Database is seeded from productsConfig.json (npm run db:seed)
-// - Service reads from MySQL at runtime
-
 const { db } = require("../../db");
 const { products } = require("../../db/schema");
 const { eq } = require("drizzle-orm");

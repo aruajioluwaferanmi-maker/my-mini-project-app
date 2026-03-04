@@ -1,6 +1,3 @@
-// src/controllers/productsController.js
-// Thin controller: reads input → calls service → emits events → sends response.
-
 const { emitEvent } = require("../../analytics");
 const { getProducts, getCategories } = require("../services/productsService");
 

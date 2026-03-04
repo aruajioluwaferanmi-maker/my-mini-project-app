@@ -1,4 +1,3 @@
-// drizzle.config.js
 require("dotenv").config();
 
 /** @type {import('drizzle-kit').Config} */

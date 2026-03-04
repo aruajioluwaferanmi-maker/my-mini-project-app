@@ -1,10 +1,3 @@
-// src/pages/ProductListPage.jsx
-// Composes FilterBar + ProductCard grid.
-// Manages active filter state.
-// AC-01: Products fetched from backend API.
-// AC-02: Filter logic can be client-side or server-side.
-// AC-03: page_view fires once on mount.
-
 import { useState, useEffect } from "react";
 import FilterBar from "../components/FilterBar";
 import ProductCard from "../components/ProductCard";

@@ -1,6 +1,3 @@
-// db/index.js
-// Database connection using Drizzle ORM
-
 require("dotenv").config();
 const mysql = require("mysql2/promise");
 const { drizzle } = require("drizzle-orm/mysql2");

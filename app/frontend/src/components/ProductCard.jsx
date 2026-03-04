@@ -4,7 +4,6 @@ export default function ProductCard({ product }) {
   const { id, name, price, category, description } = product;
 
   function handleClick() {
-    // AC-03: fire product_card_clicked with id and name in payload
     trackEvent("product_card_clicked", { id, name });
   }
 

@@ -1,7 +1,3 @@
-// scripts/reset.js
-// Reset database: drop all data and reseed from config
-// Run: npm run db:reset
-
 require("dotenv").config();
 const { db } = require("../db");
 const { products } = require("../db/schema");

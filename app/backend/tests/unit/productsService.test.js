@@ -1,6 +1,3 @@
-// tests/unit/productsService.test.js
-// AC-06: Unit tests cover filterProducts() service function
-
 const { getProducts, getCategories } = require("../../src/services/productsService");
 
 describe("getProducts()", () => {
@@ -45,8 +42,8 @@ describe("getProducts()", () => {
     });
   });
 
-  test("price is always a number", () => {
-    const result = getProducts();
+  test("price is always a number", async () => {
+    const result = await getProducts();
     result.forEach((p) => expect(typeof p.price).toBe("number"));
   });
 });
